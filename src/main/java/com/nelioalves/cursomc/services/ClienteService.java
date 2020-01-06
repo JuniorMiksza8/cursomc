@@ -3,6 +3,8 @@ package com.nelioalves.cursomc.services;
 import java.util.List;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.data.domain.Page;
@@ -23,9 +25,6 @@ import com.nelioalves.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClienteService {
-	
-
-	
 
 	@Autowired
 	private ClienteRepository repo;
@@ -44,6 +43,8 @@ public class ClienteService {
 		updateData(newObj,obj);
 		return repo.save(newObj);
 	}
+	
+	@Transactional
 	public Cliente insert(Cliente obj) {
 		obj.setId(null);
 		obj = repo.save(obj);
