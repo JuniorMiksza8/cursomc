@@ -25,7 +25,7 @@ public class Cliente implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
-	private String emai;
+	private String email;
 	private String cpfOuCpnj;
 	private Integer tipo;
 	
@@ -46,13 +46,13 @@ public class Cliente implements Serializable{
 		
 	}
 	
-	public Cliente(Integer id, String nome, String emai, String cpfOuCpnj, TipoCliente tipo) {
+	public Cliente(Integer id, String nome, String email, String cpfOuCpnj, TipoCliente tipo) {
 		super();
 		this.id = id;
 		this.nome = nome;
-		this.emai = emai;
+		this.email = email;
 		this.cpfOuCpnj = cpfOuCpnj;
-		this.tipo = tipo.getCod();
+		this.tipo = (tipo == null) ? null : tipo.getCod();
 	}
 
 
@@ -81,14 +81,14 @@ public class Cliente implements Serializable{
 
 
 
-	public String getEmai() {
-		return emai;
+	public String getEmail() {
+		return email;
 	}
 
 
 
-	public void setEmai(String emai) {
-		this.emai = emai;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 
